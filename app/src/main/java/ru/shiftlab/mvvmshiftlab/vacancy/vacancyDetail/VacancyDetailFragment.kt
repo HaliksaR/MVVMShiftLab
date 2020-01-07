@@ -2,13 +2,16 @@ package ru.shiftlab.mvvmshiftlab.vacancy.vacancyDetail
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import kotlinx.android.synthetic.main.activity_main.*
 import ru.shiftlab.mvvmshiftlab.MainActivity
 
 import ru.shiftlab.mvvmshiftlab.R
@@ -65,7 +68,14 @@ class VacancyDetailFragment : Fragment() {
             }
         })
 
-
+        val toolbar = activity?.findViewById<Toolbar>(R.id.toolbar)
+        if (toolbar != null){
+            vacancyDetailViewModel.getTitleVacancy().observe(viewLifecycleOwner, Observer {
+                if (it != null){
+                    toolbar.title = it
+                }
+            })
+        }
 
         return binding.root
     }

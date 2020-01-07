@@ -23,6 +23,10 @@ class VacancyDetailViewModel(private val vacancyId: Int = 1,
         it.asDomainModel().salary.toString() + " руб"
     }
 
+    fun getTitleVacancy() = Transformations.map(vacancy) {
+        it.asDomainModel().title
+    }
+
 
     fun getVacancy() = Transformations.map(vacancy) {
         it.asDomainModel()
