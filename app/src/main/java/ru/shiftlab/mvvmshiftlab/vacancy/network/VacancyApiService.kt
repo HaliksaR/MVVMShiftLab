@@ -10,8 +10,8 @@ import ru.shiftlab.mvvmshiftlab.vacancy.domain.Vacancy
 interface VacancyApiService {
 
     @GET("vacancy")
-    fun getVacanciesAsync() : Deferred<List<VacancyNetwork>>
+    fun getVacanciesAsync(): Deferred<List<VacancyNetwork>>
 
     @GET("vacancy/{id}")
-    fun getVacancyById(@Path("id") id: Int) : Deferred<VacancyNetwork>
+    fun getVacancyById(@Path("id") id: Int): Deferred<VacancyNetwork>
 }

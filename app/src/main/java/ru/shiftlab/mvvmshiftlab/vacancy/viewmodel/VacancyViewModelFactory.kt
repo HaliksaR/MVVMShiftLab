@@ -7,7 +7,8 @@ import ru.shiftlab.mvvmshiftlab.vacancy.database.VacancyDao
 
 class VacancyViewModelFactory(
     private val database: VacancyDao,
-    private val application: Application) : ViewModelProvider.Factory {
+    private val application: Application
+) : ViewModelProvider.Factory {
 
     @Suppress("unchecked_cast")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {

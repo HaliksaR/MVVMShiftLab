@@ -5,6 +5,7 @@
     tools:context=".vacancy.vacancyDetail.VacancyDetailFragment">
 
     <data>
+
         <variable
             name="viewModel"
             type="ru.shiftlab.mvvmshiftlab.vacancy.vacancyDetail.VacancyDetailViewModel" />
@@ -42,7 +43,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Описание"/>
+                android:text="Описание" />
 
         </androidx.cardview.widget.CardView>
 

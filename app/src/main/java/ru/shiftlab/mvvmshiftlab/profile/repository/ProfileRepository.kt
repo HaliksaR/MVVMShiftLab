@@ -13,18 +13,18 @@ import ru.shiftlab.mvvmshiftlab.profile.network.asDatabaseModel
 
 class ProfileRepository(private val database: ProfileDatabase) {
 
-    val profiles: LiveData<List<Profile>> = Transformations.map(database.profileDao.getAll()){
+    val profiles: LiveData<List<Profile>> = Transformations.map(database.profileDao.getAll()) {
         it.asDomainModel()
     }
 
-    fun getProfile(id: Int) = Transformations.map(database.profileDao.getProfile(id)){
+    fun getProfile(id: Int) = Transformations.map(database.profileDao.getProfile(id)) {
         Log.d("getProfile", "$it")
         it?.asDomainModel()
     }
 
 
-    suspend fun refreshProfiles(){
-        withContext(Dispatchers.IO){
+    suspend fun refreshProfiles() {
+        withContext(Dispatchers.IO) {
             Log.d("ProfileRepository", "refresh PROFILES is called")
             val profiles = ProfileApi.retrofitService.getProfileAsync().await()
             database.profileDao.insertAll(asDatabaseModel(profiles))
@@ -32,7 +32,7 @@ class ProfileRepository(private val database: ProfileDatabase) {
     }
 
     suspend fun refreshProfile(id: Int) {
-        withContext(Dispatchers.IO){
+        withContext(Dispatchers.IO) {
             Log.d("ProfileRepository", "refresh PROFILE is called")
             val profile = ProfileApi.retrofitService.getProfileById(id).await()
             database.profileDao.insertProfile(asDatabaseModel(profile))

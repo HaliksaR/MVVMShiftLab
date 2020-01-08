@@ -5,8 +5,9 @@ import androidx.lifecycle.ViewModelProvider
 import ru.shiftlab.mvvmshiftlab.vacancy.database.VacancyDao
 import java.lang.IllegalArgumentException
 
-class VacancyDetailViewModelFactory(private val vacancyId: Int,
-                                    private val dataSource: VacancyDao
+class VacancyDetailViewModelFactory(
+    private val vacancyId: Int,
+    private val dataSource: VacancyDao
 ) : ViewModelProvider.Factory {
     @Suppress("unchecked_cast")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {

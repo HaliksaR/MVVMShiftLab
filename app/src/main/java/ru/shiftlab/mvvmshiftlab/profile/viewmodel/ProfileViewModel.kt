@@ -63,7 +63,7 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
                 _eventNetworkError.value = false
                 _isNetworkErrorShown.value = false
 
-            } catch (e: Exception){
+            } catch (e: Exception) {
                 Log.d("refreshData", "${e.message}")
                 if (profiles.value!!.isEmpty())
                     _eventNetworkError.value = true
@@ -71,7 +71,7 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
         }
     }
 
-    private fun refreshProfileDataFromRepository(){
+    private fun refreshProfileDataFromRepository() {
         coroutineScope.launch {
             profileRepository.refreshProfile(ID_PROFILE)
             try {
@@ -80,7 +80,7 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
                 profileRepository.refreshProfile(ID_PROFILE)
                 _eventNetworkError.value = false
                 _isNetworkErrorShown.value = false
-            } catch (e: Exception){
+            } catch (e: Exception) {
                 Log.d("refreshProfileData", "${e.message}")
                 // Проверка
             }
@@ -90,7 +90,6 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
     fun onNetworkErrorShown() {
         _isNetworkErrorShown.value = true
     }
-
 
 
     /*val response: LiveData<String>

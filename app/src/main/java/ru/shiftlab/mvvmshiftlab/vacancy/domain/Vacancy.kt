@@ -6,7 +6,8 @@ data class Vacancy(
     val title: String,
     val type: String,
     val salary: Int,
-    var id: Int) {
+    var id: Int
+) {
 
     override fun toString(): String {
         return """

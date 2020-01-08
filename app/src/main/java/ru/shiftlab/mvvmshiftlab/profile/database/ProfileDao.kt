@@ -31,13 +31,13 @@ interface ProfileDao {
      * @return возвращает коллекцию профелей
      */
     @Query("SELECT * FROM profile_table")
-    fun getAll() : LiveData<List<ProfileEntity>>
+    fun getAll(): LiveData<List<ProfileEntity>>
 
     /**
      * @return возвращает профиль по [id]
      */
     @Query("SELECT * FROM profile_table WHERE id = :id")
-    fun getProfile(id: Int) : LiveData<ProfileEntity>
+    fun getProfile(id: Int): LiveData<ProfileEntity>
 
 
 }

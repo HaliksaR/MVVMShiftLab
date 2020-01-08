@@ -5,6 +5,7 @@ import ru.shiftlab.mvvmshiftlab.network.RetrofitService
 object VacancyApi {
     val retrofitService: VacancyApiService by lazy {
         RetrofitService.retrofit.create(
-            VacancyApiService::class.java)
+            VacancyApiService::class.java
+        )
     }
 }

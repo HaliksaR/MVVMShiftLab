@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import ru.shiftlab.mvvmshiftlab.R
 import ru.shiftlab.mvvmshiftlab.databinding.ProfileFragmentBinding
 import ru.shiftlab.mvvmshiftlab.profile.viewmodel.ProfileViewModel
@@ -33,7 +34,9 @@ class ProfileFragment : Fragment() {
                 application
             )
 
-        val viewModel = ViewModelProviders.of(this, viewModelFactory).get(ProfileViewModel::class.java)
+        val viewModel =
+            ViewModelProvider(this, viewModelFactory).get(ProfileViewModel::class.java)
+
 
         binding.lifecycleOwner = this
 

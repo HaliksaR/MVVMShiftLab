@@ -9,15 +9,16 @@ import ru.shiftlab.mvvmshiftlab.vacancy.domain.Vacancy
 import ru.shiftlab.mvvmshiftlab.vacancy.database.VacancyDao
 import ru.shiftlab.mvvmshiftlab.vacancy.database.asDomainModel
 
-class VacancyDetailViewModel(private val vacancyId: Int = 1,
-                             dataSource: VacancyDao
+class VacancyDetailViewModel(
+    private val vacancyId: Int = 1,
+    dataSource: VacancyDao
 ) : ViewModel() {
 
     val database = dataSource
 
     private val viewModelJob = Job()
 
-    private val vacancy  = dataSource.getVacancyById(vacancyId)
+    private val vacancy = dataSource.getVacancyById(vacancyId)
 
     val stringSalary = Transformations.map(vacancy) {
         it.asDomainModel().salary.toString() + " руб"
@@ -33,8 +34,8 @@ class VacancyDetailViewModel(private val vacancyId: Int = 1,
     }
 
     private val _navigateToVacancy = MutableLiveData<Boolean?>()
-    val navigateToVacancy : LiveData<Boolean?>
-    get() = _navigateToVacancy
+    val navigateToVacancy: LiveData<Boolean?>
+        get() = _navigateToVacancy
 
     override fun onCleared() {
         super.onCleared()

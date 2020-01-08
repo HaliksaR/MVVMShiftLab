@@ -8,9 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import ru.shiftlab.mvvmshiftlab.vacancy.domain.Vacancy
 import ru.shiftlab.mvvmshiftlab.databinding.VacancyItemBinding
 
-class VacancyAdapter(val clickListener: VacancyListener) : ListAdapter<Vacancy, VacancyAdapter.ViewHolder>(
-    VacancyDiffCallback()
-) {
+class VacancyAdapter(val clickListener: VacancyListener) :
+    ListAdapter<Vacancy, VacancyAdapter.ViewHolder>(
+        VacancyDiffCallback()
+    ) {
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -24,16 +25,17 @@ class VacancyAdapter(val clickListener: VacancyListener) : ListAdapter<Vacancy, 
     }
 
 
-    class ViewHolder private constructor(private val binding: VacancyItemBinding) : RecyclerView.ViewHolder(binding.root){
+    class ViewHolder private constructor(private val binding: VacancyItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: Vacancy, clickListener: VacancyListener){
+        fun bind(item: Vacancy, clickListener: VacancyListener) {
             binding.vacancy = item
             binding.clickListener = clickListener
             binding.executePendingBindings()
         }
 
         companion object {
-            fun from(parent: ViewGroup) : ViewHolder {
+            fun from(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding = VacancyItemBinding.inflate(layoutInflater, parent, false)
                 return ViewHolder(
@@ -43,8 +45,6 @@ class VacancyAdapter(val clickListener: VacancyListener) : ListAdapter<Vacancy, 
         }
 
     }
-
-
 
 
 }

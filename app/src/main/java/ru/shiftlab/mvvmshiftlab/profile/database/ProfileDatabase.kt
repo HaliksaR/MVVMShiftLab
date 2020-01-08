@@ -13,8 +13,10 @@ abstract class ProfileDatabase : RoomDatabase() {
 
     companion object {
 
-        @Volatile private var INSTANCE: ProfileDatabase? = null
-        fun getInstance(context: Context) : ProfileDatabase {
+        @Volatile
+        private var INSTANCE: ProfileDatabase? = null
+
+        fun getInstance(context: Context): ProfileDatabase {
             synchronized(this) {
                 var instance = INSTANCE
 

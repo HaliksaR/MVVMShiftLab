@@ -18,9 +18,10 @@ data class VacancyEntity(
     val salary: Int,
 
     @PrimaryKey(autoGenerate = true)
-    var id: Int)
+    var id: Int
+)
 
-fun List<VacancyEntity>.asDomainModel() : List<Vacancy>{
+fun List<VacancyEntity>.asDomainModel(): List<Vacancy> {
     return map {
         Vacancy(
             id = it.id,
@@ -32,10 +33,11 @@ fun List<VacancyEntity>.asDomainModel() : List<Vacancy>{
     }
 }
 
-fun VacancyEntity.asDomainModel() : Vacancy {
+fun VacancyEntity.asDomainModel(): Vacancy {
     return Vacancy(
         id = id,
         title = title,
         type = type,
-        salary = salary)
+        salary = salary
+    )
 }

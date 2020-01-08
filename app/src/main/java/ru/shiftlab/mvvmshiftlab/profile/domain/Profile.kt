@@ -8,8 +8,10 @@ package ru.shiftlab.mvvmshiftlab.profile.domain
  * @param[specialty] специальность пользователя (Android разработчик и т.п.)
  *
  */
-data class Profile(val id: Int,
-                   val name: String,
-                   val status: String,
-                   val specialty: String)
+data class Profile(
+    val id: Int,
+    val name: String,
+    val status: String,
+    val specialty: String
+)
 

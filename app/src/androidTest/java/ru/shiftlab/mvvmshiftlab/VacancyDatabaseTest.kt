@@ -26,7 +26,7 @@ class VacancyDatabaseTest {
 
     @Before
     fun createDatabase() {
-        val context =  InstrumentationRegistry.getInstrumentation().targetContext
+        val context = InstrumentationRegistry.getInstrumentation().targetContext
 
         profileDatabase = Room.inMemoryDatabaseBuilder(context, ProfileDatabase::class.java)
             .allowMainThreadQueries()

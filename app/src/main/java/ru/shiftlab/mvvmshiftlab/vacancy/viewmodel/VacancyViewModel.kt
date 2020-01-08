@@ -14,8 +14,10 @@ import ru.shiftlab.mvvmshiftlab.vacancy.repository.VacancyRepository
 import ru.shiftlab.mvvmshiftlab.vacancyFormat
 import java.lang.Exception
 
-class VacancyViewModel(val database: VacancyDao,
-                       application: Application) : AndroidViewModel(application) {
+class VacancyViewModel(
+    val database: VacancyDao,
+    application: Application
+) : AndroidViewModel(application) {
 
 
     private val vacancyRepository = VacancyRepository(VacancyDatabase.getInstance(application))
@@ -23,7 +25,7 @@ class VacancyViewModel(val database: VacancyDao,
     private var viewModelJob = Job()
     private var uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
-    var vacancy : LiveData<Vacancy> = vacancyRepository.vacancy
+    var vacancy: LiveData<Vacancy> = vacancyRepository.vacancy
 
     val vacancies = vacancyRepository.vacancies
 
@@ -51,7 +53,7 @@ class VacancyViewModel(val database: VacancyDao,
                 vacancyRepository.refreshVacancies()
                 _eventNetworkError.value = false
                 _isNetworkErrorShown.value = false
-            } catch (e: Exception){
+            } catch (e: Exception) {
                 Log.d("refreshData", "${e.message}")
                 if (vacancies.value!!.isEmpty())
                     _eventNetworkError.value = true
@@ -60,15 +62,14 @@ class VacancyViewModel(val database: VacancyDao,
         }
     }
 
-    private fun getVacancyById(id: Int){
-       uiScope.launch {
+    private fun getVacancyById(id: Int) {
+        uiScope.launch {
             vacancyRepository.getVacancyById(id)
         }
     }
 
 
-
-    fun onClear(){
+    fun onClear() {
         uiScope.launch {
             clear()
         }

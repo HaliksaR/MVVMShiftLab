@@ -12,12 +12,12 @@ interface VacancyDao {
 
 
     @Query("select * from vacancy_table where id =:key")
-    fun getVacancyById(key: Int) : LiveData<VacancyEntity>
+    fun getVacancyById(key: Int): LiveData<VacancyEntity>
 
 
     @Query("delete from vacancy_table")
     fun clear()
 
     @Query("select * from vacancy_table")
-    fun getAll() : LiveData<List<VacancyEntity>>
+    fun getAll(): LiveData<List<VacancyEntity>>
 }

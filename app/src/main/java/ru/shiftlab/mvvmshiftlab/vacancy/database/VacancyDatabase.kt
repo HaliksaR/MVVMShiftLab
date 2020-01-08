@@ -9,12 +9,14 @@ import ru.shiftlab.mvvmshiftlab.vacancy.domain.Vacancy
 @Database(entities = [VacancyEntity::class], version = 2, exportSchema = false)
 abstract class VacancyDatabase : RoomDatabase() {
 
-    abstract val vacancyDao : VacancyDao
+    abstract val vacancyDao: VacancyDao
 
     companion object {
 
-        @Volatile private var INSTANCE: VacancyDatabase? = null
-        fun getInstance(context: Context) : VacancyDatabase {
+        @Volatile
+        private var INSTANCE: VacancyDatabase? = null
+
+        fun getInstance(context: Context): VacancyDatabase {
             synchronized(this) {
                 var instance =
                     INSTANCE

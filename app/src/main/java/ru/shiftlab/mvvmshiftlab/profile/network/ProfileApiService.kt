@@ -12,8 +12,8 @@ import ru.shiftlab.mvvmshiftlab.profile.domain.Profile
 interface ProfileApiService {
 
     @GET("profile")
-    fun getProfileAsync() : Deferred<List<ProfileNetwork>>
+    fun getProfileAsync(): Deferred<List<ProfileNetwork>>
 
     @GET("profile/{id}")
-    fun getProfileById(@Path("id") id: Int) : Deferred<ProfileNetwork>
+    fun getProfileById(@Path("id") id: Int): Deferred<ProfileNetwork>
 }

@@ -23,15 +23,16 @@ data class ProfileEntity(
     val id: Int,
     @ColumnInfo(name = "name")
     val name: String,
-    @ColumnInfo(name= "status")
+    @ColumnInfo(name = "status")
     val status: String,
     @ColumnInfo(name = "specialty")
-    val specialty: String)
+    val specialty: String
+)
 
 /**
  * @receiver[asDomainModel] преобразует ProfileEntity в Profile
  */
-fun List<ProfileEntity>.asDomainModel() : List<Profile> {
+fun List<ProfileEntity>.asDomainModel(): List<Profile> {
     return map {
         Profile(
             id = it.id,
@@ -42,6 +43,6 @@ fun List<ProfileEntity>.asDomainModel() : List<Profile> {
     }
 }
 
-fun ProfileEntity.asDomainModel() : Profile {
+fun ProfileEntity.asDomainModel(): Profile {
     return Profile(id, name, status, specialty)
 }

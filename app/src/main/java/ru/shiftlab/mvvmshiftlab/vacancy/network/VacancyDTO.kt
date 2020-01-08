@@ -7,10 +7,11 @@ data class VacancyNetwork(
     var id: Int,
     val title: String,
     val type: String,
-    val salary: Int)
+    val salary: Int
+)
 
 
-fun asDatabaseModel(vacancies: List<VacancyNetwork>) : List<VacancyEntity>{
+fun asDatabaseModel(vacancies: List<VacancyNetwork>): List<VacancyEntity> {
     return vacancies.map {
         VacancyEntity(
             id = it.id,
@@ -22,7 +23,7 @@ fun asDatabaseModel(vacancies: List<VacancyNetwork>) : List<VacancyEntity>{
 }
 
 //???
-fun asDatabaseModel(vacancy: VacancyNetwork) : VacancyEntity{
+fun asDatabaseModel(vacancy: VacancyNetwork): VacancyEntity {
     return VacancyEntity(
         id = vacancy.id,
         title = vacancy.title,
@@ -32,7 +33,7 @@ fun asDatabaseModel(vacancy: VacancyNetwork) : VacancyEntity{
 
 }
 
-fun VacancyNetwork.asDomainModel() : Vacancy{
+fun VacancyNetwork.asDomainModel(): Vacancy {
     return Vacancy(
         id = id,
         title = title,

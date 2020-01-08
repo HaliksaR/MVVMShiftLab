@@ -21,8 +21,8 @@ class VacancyRepository(private val database: VacancyDatabase) {
 
     var vacancy = MutableLiveData<Vacancy>()
 
-    suspend fun refreshVacancies(){
-        withContext(Dispatchers.IO){
+    suspend fun refreshVacancies() {
+        withContext(Dispatchers.IO) {
             Log.d("ProfileRepository", "refresh VACANCIES is called")
             val vacancies = VacancyApi.retrofitService.getVacanciesAsync().await()
             database.vacancyDao.insertAll(asDatabaseModel(vacancies))
@@ -30,7 +30,7 @@ class VacancyRepository(private val database: VacancyDatabase) {
     }
 
     suspend fun getVacancyById(id: Int) {
-        withContext(Dispatchers.Main){
+        withContext(Dispatchers.Main) {
             Log.d("ProfileRepository", "getVacancyById($id)")
             val vacancyNetwork = VacancyApi.retrofitService.getVacancyById(id).await()
             vacancy.value = vacancyNetwork.asDomainModel()

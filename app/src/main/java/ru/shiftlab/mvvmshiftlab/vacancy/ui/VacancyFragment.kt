@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import ru.shiftlab.mvvmshiftlab.R
 import ru.shiftlab.mvvmshiftlab.vacancy.database.VacancyDatabase
@@ -30,8 +31,10 @@ class VacancyFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = DataBindingUtil.inflate(inflater,
-            R.layout.vacancy_fragment, container, false)
+        binding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.vacancy_fragment, container, false
+        )
 
         val application = requireNotNull(this.activity).application
 
@@ -44,7 +47,9 @@ class VacancyFragment : Fragment() {
                 application
             )
 
-        val vacancyViewModel = ViewModelProviders.of(this, viewModelFactory).get(VacancyViewModel::class.java)
+        val vacancyViewModel =
+            ViewModelProvider(this, viewModelFactory).get(VacancyViewModel::class.java)
+
 
         val adapter =
             VacancyAdapter(
@@ -86,7 +91,6 @@ class VacancyFragment : Fragment() {
 
 
     }
-
 
 
 }
