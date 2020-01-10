@@ -42,8 +42,6 @@ class ProfileFragment : Fragment() {
 
         binding.viewModel = viewModel
 
-
-
         return binding.root
     }
 

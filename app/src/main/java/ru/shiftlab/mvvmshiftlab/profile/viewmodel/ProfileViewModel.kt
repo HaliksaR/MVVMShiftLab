@@ -57,7 +57,6 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
 
     private fun refreshDataFromRepository() {
         coroutineScope.launch {
-            profileRepository.refreshProfiles()
             try {
                 profileRepository.refreshProfiles()
                 _eventNetworkError.value = false

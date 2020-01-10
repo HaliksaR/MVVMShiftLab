@@ -48,7 +48,6 @@ class VacancyViewModel(
 
     private fun refreshDataFromRepository() {
         uiScope.launch {
-            vacancyRepository.refreshVacancies()
             try {
                 vacancyRepository.refreshVacancies()
                 _eventNetworkError.value = false

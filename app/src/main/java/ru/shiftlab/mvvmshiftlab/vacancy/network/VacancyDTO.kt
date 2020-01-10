@@ -3,7 +3,7 @@ package ru.shiftlab.mvvmshiftlab.vacancy.network
 import ru.shiftlab.mvvmshiftlab.vacancy.database.VacancyEntity
 import ru.shiftlab.mvvmshiftlab.vacancy.domain.Vacancy
 
-data class VacancyNetwork(
+data class VacancyNetworkEntity(
     var id: Int,
     val title: String,
     val type: String,
@@ -11,8 +11,8 @@ data class VacancyNetwork(
 )
 
 
-fun asDatabaseModel(vacancies: List<VacancyNetwork>): List<VacancyEntity> {
-    return vacancies.map {
+fun asDatabaseModel(vacancyEntities: List<VacancyNetworkEntity>): List<VacancyEntity> {
+    return vacancyEntities.map {
         VacancyEntity(
             id = it.id,
             title = it.title,
@@ -23,17 +23,17 @@ fun asDatabaseModel(vacancies: List<VacancyNetwork>): List<VacancyEntity> {
 }
 
 //???
-fun asDatabaseModel(vacancy: VacancyNetwork): VacancyEntity {
+fun asDatabaseModel(vacancyEntity: VacancyNetworkEntity): VacancyEntity {
     return VacancyEntity(
-        id = vacancy.id,
-        title = vacancy.title,
-        type = vacancy.type,
-        salary = vacancy.salary
+        id = vacancyEntity.id,
+        title = vacancyEntity.title,
+        type = vacancyEntity.type,
+        salary = vacancyEntity.salary
     )
 
 }
 
-fun VacancyNetwork.asDomainModel(): Vacancy {
+fun VacancyNetworkEntity.asDomainModel(): Vacancy {
     return Vacancy(
         id = id,
         title = title,

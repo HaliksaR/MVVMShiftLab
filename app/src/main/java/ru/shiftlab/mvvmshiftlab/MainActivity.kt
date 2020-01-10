@@ -27,7 +27,6 @@ class MainActivity : AppCompatActivity() {
             .findFragmentById(R.id.myNavHostFragment) as NavHostFragment? ?: return
         navController = host.navController
 
-
         //Toolbar
         val appBarConfiguration = AppBarConfiguration(navController.graph)
         val toolBar = findViewById<Toolbar>(R.id.toolbar)
@@ -39,8 +38,6 @@ class MainActivity : AppCompatActivity() {
             navController.navigate(item.itemId)
             return@setOnNavigationItemSelectedListener true
         }
-
-
     }
 
 }
