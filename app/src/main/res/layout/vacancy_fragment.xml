@@ -19,7 +19,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/vacancy_list"
-            style="@style/AppTheme.RecyclerViewVertical"
+            style="@style/CFT_Theme.Style.RecyclerViewVertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">

@@ -5,4 +5,11 @@
     <string name="years">лет</string>
     <string name="employment">Тип занятости:</string>
     <string name="description_vacancy">Описание</string>
+
+    <string name="title_events">Мероприятия</string>
+    <string name="title_profile">Профиль</string>
+    <string name="title_vacancies">Вакансии</string>
+    <string name="respond">Откликнуться</string>
+    <string name="refuse">Отказаться</string>
+    <string name="subscribe_events">Подписки на мероприятие</string>
 </resources>

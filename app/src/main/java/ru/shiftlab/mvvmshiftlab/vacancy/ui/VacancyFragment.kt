@@ -70,7 +70,6 @@ class VacancyFragment : Fragment() {
         binding.vacancy = vacancyViewModel
 
 
-
         vacancyViewModel.navigateToVacancyDetail.observe(viewLifecycleOwner, Observer { vacancyId ->
             vacancyId?.let {
                 this.findNavController().navigate(

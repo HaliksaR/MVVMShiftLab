@@ -9,13 +9,32 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
-        android:layout_width="0dp"
+        style="@style/CFT_Theme.Style.Toolbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="@style/AppTheme.Toolbar"
+        android:theme="@style/CFT_Theme.Toolbar"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextAppearance="@style/CFT_Theme.Toolbar.Title">
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/search_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_search_view"
+            android:theme="@style/CFT_Theme.SearchView"
+            app:defaultQueryHint="Search"
+            app:queryBackground="@drawable/background_search_view"
+            app:queryHint="Search"
+            app:searchHintIcon="@null"
+            app:searchIcon="@drawable/ic_loupe">
+
+        </androidx.appcompat.widget.SearchView>
+
+    </androidx.appcompat.widget.Toolbar>
 
     <fragment
         android:id="@+id/myNavHostFragment"
@@ -33,15 +52,20 @@
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:menu="@menu/bottom_menu"
+        android:animateLayoutChanges="true"
         android:background="@drawable/bottom_navigation_background"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        app:elevation="15dp"
+        app:itemHorizontalTranslationEnabled="false"
         app:itemIconTint="@drawable/bottom_navigation_color_selector"
         app:itemTextColor="@color/textDarkColor"
         app:labelVisibilityMode="selected"
-        app:itemHorizontalTranslationEnabled="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/myNavHostFragment" />
-
+        app:layout_constraintTop_toBottomOf="@+id/myNavHostFragment"
+        app:menu="@menu/bottom_menu" />
 </androidx.constraintlayout.widget.ConstraintLayout>

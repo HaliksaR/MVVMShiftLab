@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="vacancy"
             type="ru.shiftlab.mvvmshiftlab.vacancy.domain.Vacancy" />
@@ -14,7 +15,7 @@
     </data>
 
     <com.google.android.material.card.MaterialCardView
-        style="@style/AppTheme.CardView"
+        style="@style/CFT_Theme.Style.CardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="@{() -> clickListener.onClick(vacancy)}">
@@ -27,7 +28,7 @@
 
             <TextView
                 android:id="@+id/title_vacancy"
-                style="@style/AppTheme.Title"
+                style="@style/CFT_Theme.Style.Title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
@@ -49,13 +50,13 @@
                 android:ellipsize="end"
                 android:maxEms="15"
                 android:singleLine="true"
-                tools:text="Novosibirsk"
                 android:text="@{vacancy.city}"
                 android:textColor="@color/textDarkColor"
                 android:textSize="@dimen/ts14"
                 app:layout_constraintBottom_toTopOf="@+id/money_vacancy"
                 app:layout_constraintStart_toStartOf="@+id/title_vacancy"
-                app:layout_constraintTop_toBottomOf="@+id/title_vacancy" />
+                app:layout_constraintTop_toBottomOf="@+id/title_vacancy"
+                tools:text="Novosibirsk" />
 
             <TextView
                 android:id="@+id/money_vacancy"
@@ -81,13 +82,13 @@
                 android:fontFamily="@font/os_light"
                 android:maxEms="15"
                 android:singleLine="true"
-                tools:text="Employment: Full day"
                 android:text="@{@string/employment + @string/space + vacancy.employment}"
                 android:textColor="@color/textDarkColor"
                 android:textSize="@dimen/ts14"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/workexp_vacancy"
-                app:layout_constraintTop_toBottomOf="@+id/workexp_vacancy" />
+                app:layout_constraintTop_toBottomOf="@+id/workexp_vacancy"
+                tools:text="Employment: Full day" />
 
             <TextView
                 android:id="@+id/workexp_vacancy"
@@ -97,13 +98,13 @@
                 android:fontFamily="@font/os_light"
                 android:maxEms="15"
                 android:singleLine="true"
-                tools:text="Work experience: 1-2 year"
                 android:text="@{@string/work_experience + @string/space + vacancy.work_experience + @string/space + @string/years}"
                 android:textColor="@color/textDarkColor"
                 android:textSize="@dimen/ts14"
                 app:layout_constraintBottom_toTopOf="@+id/employment_vacancy"
                 app:layout_constraintStart_toStartOf="@+id/money_vacancy"
-                app:layout_constraintTop_toBottomOf="@+id/money_vacancy" />
+                app:layout_constraintTop_toBottomOf="@+id/money_vacancy"
+                tools:text="Work experience: 1-2 year" />
 
             <TextView
                 android:id="@+id/date_vacancy"
@@ -111,12 +112,12 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/os_light"
                 android:singleLine="true"
-                tools:text="12.12.2020"
                 android:text="@{vacancy.date}"
                 android:textColor="@color/textDarkColor"
                 android:textSize="@dimen/ts14"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="12.12.2020" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout4"

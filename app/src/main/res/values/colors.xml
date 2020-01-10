@@ -3,6 +3,7 @@
     <color name="colorPrimary">#FFFFFF</color>
     <color name="colorPrimaryDark">#FFFFFF</color>
     <color name="colorAccent">#FE415B</color>
+    <color name="rippleColorAccent">#BE3749</color>
 
     <color name="colorSeparator">#A2A2A2</color>
     <color name="titleColor">@color/colorAccent</color>
@@ -11,7 +12,9 @@
     <color name="hintColor">#E2E2E2</color>
     <color name="correctColor">#9BCD47</color>
     <color name="backgroundLayoutColor">#F0F2FA</color>
+    <color name="rippleBackgroundLayoutColor">#BFBFC9</color>
     <color name="backgroundCardColor">#FFFFFF</color>
+    <color name="rippleBackgroundCardColor">#DDDDDD</color>
 
     <color name="statusColor">@color/colorAccent</color>
     <color name="iconColor">#ACACAC</color>

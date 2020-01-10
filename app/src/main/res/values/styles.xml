@@ -1,10 +1,19 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="CFT_Theme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="android:windowLightStatusBar" tools:targetApi="23">true</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:fontFamily">@font/os_regular</item>
+        <item name="android:windowBackground">@color/backgroundLayoutColor</item>
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
 
+    <style name="CFT_ThemeNight" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
@@ -12,26 +21,42 @@
         <item name="android:windowBackground">@color/backgroundLayoutColor</item>
     </style>
 
-    <style name="AppThemeNight" parent="Theme.AppCompat.DayNight.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="android:windowLightStatusBar" tools:targetApi="23">false</item>
 
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    <style name="CFT_Theme.Toolbar.Title" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">@dimen/ts18</item>
         <item name="android:fontFamily">@font/os_regular</item>
-        <item name="android:windowBackground">@color/backgroundLayoutColor</item>
+        <item name="android:textColor">@color/textDarkColor</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxEms">10</item>
+        <item name="android:singleLine">true</item>
     </style>
 
-    <style name="AppTheme.Toolbar" parent="ThemeOverlay.AppCompat.ActionBar">
-        <!-- Customize color of navigation drawer icon and back arrow -->
+    <style name="CFT_Theme.Toolbar" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorControlNormal">@color/textDarkColor</item>
-        <item name="android:colorBackground">@color/colorPrimary</item>
-        <item name="android:textColorPrimary">@color/colorAccent</item>
-        <item name="android:background">@color/backgroundCardColor</item>
+        <item name="android:background">@drawable/appbar_background</item>
+        <item name="autoCompleteTextViewStyle">@style/CFT_Theme.AutoCompleteTextView.SearchView
+        </item>
     </style>
 
-    <style name="AppTheme.CardView" parent="CardView">
+    <style name="CFT_Theme.Style.Toolbar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:paddingTop">20dp</item>
+        <item name="android:paddingBottom">15dp</item>
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:paddingRight">15dp</item>
+    </style>
+
+    <style name="CFT_Theme.AutoCompleteTextView.SearchView" parent="Widget.AppCompat.AutoCompleteTextView">
+        <item name="android:textColor">@color/textDarkColor</item>
+        <item name="android:textColorHint">@color/hintColor</item>
+        <item name="android:paddingStart">15dp</item>
+    </style>
+
+    <style name="CFT_Theme.SearchView" parent="Widget.AppCompat.SearchView">
+        <item name="iconifiedByDefault">true</item>
+        <item name="colorControlActivated">@color/colorAccent</item>
+    </style>
+
+    <style name="CFT_Theme.Style.CardView" parent="CardView">
         <item name="cardUseCompatPadding">false</item>
         <item name="cardCornerRadius">@dimen/cardview_radius</item>
         <item name="cardElevation">@dimen/cardview_elevation</item>
@@ -40,14 +65,15 @@
         <item name="android:layout_margin">7dp</item>
     </style>
 
-    <style name="AppTheme.Title" parent="Widget.AppCompat.TextView">
+    <style name="CFT_Theme.Style.Title" parent="Widget.AppCompat.TextView">
         <item name="android:fontFamily">@font/os_semi_bold</item>
         <item name="android:textColor">@color/titleColor</item>
     </style>
-    <style name="AppTheme.RecyclerViewVertical">
+
+    <style name="CFT_Theme.Style.RecyclerViewVertical" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:orientation">vertical</item>
-        <item name="android:layout_marginLeft">15dp</item>
-        <item name="android:layout_marginRight">15dp</item>
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:paddingRight">15dp</item>
         <item name="android:paddingTop">7dp</item>
         <item name="android:paddingBottom">7dp</item>
         <item name="android:clipToPadding">false</item>

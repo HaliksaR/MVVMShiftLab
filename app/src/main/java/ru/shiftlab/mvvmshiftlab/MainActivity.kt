@@ -11,6 +11,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
@@ -37,6 +38,7 @@ class MainActivity : AppCompatActivity() {
             navController.navigate(item.itemId)
             return@setOnNavigationItemSelectedListener true
         }
+        bottomNavigationView
         visibilityNavElements(navController)
     }
 
@@ -44,10 +46,51 @@ class MainActivity : AppCompatActivity() {
     private fun visibilityNavElements(navController: NavController) {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.vacancyDetailFragment -> bottomNavigationView?.visibility = View.GONE
-                else -> bottomNavigationView?.visibility = View.VISIBLE
+                R.id.vacancyDetailFragment -> {
+                    configurableToolbar(
+                        bottomNavigation = false,
+                        backNavigation = true,
+                        search = false,
+                        title = true
+                    )
+                }
+                R.id.profileFragment -> {
+                    configurableToolbar(
+                        menu = R.menu.profile_menu,
+                        bottomNavigation = true,
+                        backNavigation = false,
+                        search = false,
+                        title = true
+                    )
+                }
+                R.id.vacancyFragment -> {
+                    configurableToolbar(
+                        bottomNavigation = true,
+                        backNavigation = false,
+                        search = true,
+                        title = false
+                    )
+                }
             }
         }
     }
 
+    private fun configurableToolbar(
+        menu: Int? = null,
+        bottomNavigation: Boolean = false,
+        backNavigation: Boolean = false,
+        search: Boolean = false,
+        title: Boolean = true
+    ) {
+        supportActionBar?.setDisplayShowTitleEnabled(title)
+
+        if (menu == null) toolbar.menu.clear()
+        else toolbar.inflateMenu(menu)
+
+        search_bar.visibility = if (search) View.VISIBLE else View.GONE
+
+        bottomNavigationView?.visibility = if (bottomNavigation) View.VISIBLE else View.GONE
+
+        if (backNavigation) toolbar.setNavigationIcon(R.drawable.ic_left_arrow)
+    }
 }

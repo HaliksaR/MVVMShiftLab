@@ -1,6 +1,5 @@
 package ru.shiftlab.mvvmshiftlab.vacancy.vacancyDetail
 
-import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import ru.shiftlab.mvvmshiftlab.vacancy.database.VacancyDao

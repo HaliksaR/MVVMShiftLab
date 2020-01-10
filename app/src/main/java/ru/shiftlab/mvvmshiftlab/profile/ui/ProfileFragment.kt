@@ -22,28 +22,12 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         binding = DataBindingUtil.inflate(inflater, R.layout.profile_fragment, container, false)
-
         val application = requireNotNull(this.activity).application
-
-        val viewModelFactory =
-            ProfileViewModelFactory(
-                application
-            )
-
-        val viewModel =
-            ViewModelProvider(this, viewModelFactory).get(ProfileViewModel::class.java)
-
-
+        val viewModelFactory = ProfileViewModelFactory(application)
+        val viewModel = ViewModelProvider(this, viewModelFactory).get(ProfileViewModel::class.java)
         binding.lifecycleOwner = this
-
         binding.viewModel = viewModel
-
-
-
         return binding.root
     }
-
-
 }

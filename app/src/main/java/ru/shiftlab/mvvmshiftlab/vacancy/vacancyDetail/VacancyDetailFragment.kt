@@ -17,13 +17,6 @@ import ru.shiftlab.mvvmshiftlab.vacancy.database.VacancyDatabase
 
 class VacancyDetailFragment : Fragment() {
 
-    companion object {
-        fun newInstance() =
-            VacancyDetailFragment()
-    }
-
-    private lateinit var viewModel: VacancyDetailViewModel
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -65,8 +58,10 @@ class VacancyDetailFragment : Fragment() {
             }
         })
 
+        var respond = false
         val toolbar = activity?.findViewById<Toolbar>(R.id.toolbar)
         if (toolbar != null) {
+
             vacancyDetailViewModel.getTitleVacancy().observe(viewLifecycleOwner, Observer {
                 if (it != null) {
                     toolbar.title = it
@@ -74,8 +69,14 @@ class VacancyDetailFragment : Fragment() {
             })
         }
 
+        binding.respondBtn.setOnClickListener {
+            respond = respond.not()
+            binding.respondBtn.text =
+                if (respond) resources.getText(R.string.refuse) else resources.getText(R.string.respond)
+            binding.statusVacancy.visibility = if (respond) View.VISIBLE else View.GONE
+            if (respond) toolbar?.inflateMenu(R.menu.menu_respond_road) else toolbar?.menu?.clear()
+        }
+
         return binding.root
     }
-
-
 }

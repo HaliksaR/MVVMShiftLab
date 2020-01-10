@@ -9,7 +9,7 @@
         android:id="@+id/vacancyFragment"
         android:name="ru.shiftlab.mvvmshiftlab.vacancy.ui.VacancyFragment"
         android:label="Вакансии"
-        tools:layout="@layout/vacancy_fragment" >
+        tools:layout="@layout/vacancy_fragment">
         <action
             android:id="@+id/action_vacancyFragment_to_vacancyDetailFragment"
             app:destination="@+id/vacancyDetailFragment" />
@@ -19,17 +19,16 @@
         android:id="@+id/vacancyDetailFragment"
         android:name="ru.shiftlab.mvvmshiftlab.vacancy.vacancyDetail.VacancyDetailFragment"
         android:label="vacancy_detail_fragment"
-        tools:layout="@layout/vacancy_detail_fragment" >
+        tools:layout="@layout/vacancy_detail_fragment">
         <argument
             android:name="vacancyId"
-            app:argType="integer"/>
+            app:argType="integer" />
         <action
             android:id="@+id/action_vacancyDetailFragment_to_vacancyFragment2"
-            app:destination="@id/vacancyFragment"
-            />
+            app:destination="@id/vacancyFragment" />
     </fragment>
     <fragment
-        android:id="@+id/profileFragment2"
+        android:id="@+id/profileFragment"
         android:name="ru.shiftlab.mvvmshiftlab.profile.ui.ProfileFragment"
         android:label="Профиль"
         tools:layout="@layout/profile_fragment" />

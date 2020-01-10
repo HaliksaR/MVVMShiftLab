@@ -5,4 +5,11 @@
     <string name="years">years</string>
     <string name="employment">Employment:</string>
     <string name="description_vacancy">Description</string>
+
+    <string name="title_events">Events</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_vacancies">Vacancies</string>
+    <string name="respond">Respond</string>
+    <string name="refuse">Refuse</string>
+    <string name="subscribe_events">Subscribe events</string>
 </resources>

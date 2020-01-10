@@ -27,14 +27,14 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/tags_list"
-                style="@style/AppTheme.RecyclerViewVertical"
+                style="@style/CFT_Theme.Style.RecyclerViewVertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
             <com.google.android.material.card.MaterialCardView
-                style="@style/AppTheme.CardView"
+                style="@style/CFT_Theme.Style.CardView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -46,7 +46,7 @@
 
                     <TextView
                         android:id="@+id/title_vacancy"
-                        style="@style/AppTheme.Title"
+                        style="@style/CFT_Theme.Style.Title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ellipsize="end"
@@ -138,7 +138,7 @@
                         tools:text="12.12.2020" />
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/constraintLayout4"
+                        android:id="@+id/status_vacancy"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:visibility="visible"
@@ -146,7 +146,7 @@
                         app:layout_constraintTop_toTopOf="parent">
 
                         <TextView
-                            android:id="@+id/status_vacancy"
+                            android:id="@+id/status_vacancy_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/background_status"
@@ -166,7 +166,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <ImageView
-                            android:id="@+id/imageView"
+                            android:id="@+id/status_vacancy_image"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignEnd="@+id/status_vacancy"
@@ -185,7 +185,7 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                style="@style/AppTheme.CardView"
+                style="@style/CFT_Theme.Style.CardView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -196,7 +196,7 @@
 
                     <TextView
                         android:id="@+id/title_vacancy_description"
-                        style="@style/AppTheme.Title"
+                        style="@style/CFT_Theme.Style.Title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/description_vacancy"
@@ -222,6 +222,22 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/respond_btn"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="7dp"
+                android:gravity="center"
+
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:text="@string/respond"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/ts16"
+                app:cornerRadius="12dp" />
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 

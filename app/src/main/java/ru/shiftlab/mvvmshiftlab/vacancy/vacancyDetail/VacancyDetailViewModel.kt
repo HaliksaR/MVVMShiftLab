@@ -1,6 +1,9 @@
 package ru.shiftlab.mvvmshiftlab.vacancy.vacancyDetail
 
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
+import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.Job
 import ru.shiftlab.mvvmshiftlab.vacancy.database.VacancyDao
 import ru.shiftlab.mvvmshiftlab.vacancy.database.asDomainModel
