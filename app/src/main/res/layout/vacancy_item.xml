@@ -18,7 +18,10 @@
         style="@style/CFT_Theme.Style.CardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="@{() -> clickListener.onClick(vacancy)}">
+        android:background="@drawable/custom_ripple"
+        android:clickable="true"
+        android:onClick="@{() -> clickListener.onClick(vacancy)}"
+        android:focusable="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
