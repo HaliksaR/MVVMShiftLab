@@ -11,13 +11,13 @@ import retrofit2.converter.moshi.MoshiConverterFactory
  */
 object RetrofitService {
 
-    private const val BASE_URL = "https://my-json-server.typicode.com/NikitaModelov/testRest/"
+    private const val BASE_URL = "https://my-json-server.typicode.com/HaliksaR/SandBoxDatabase/"
 
     private val moshi = Moshi.Builder()
         .add(KotlinJsonAdapterFactory())
         .build()
 
-    val retrofit = Retrofit.Builder()
+    val retrofit: Retrofit = Retrofit.Builder()
         .addConverterFactory(MoshiConverterFactory.create(moshi))
         .addCallAdapterFactory(CoroutineCallAdapterFactory())
         .baseUrl(BASE_URL)

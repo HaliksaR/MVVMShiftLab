@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MVVMShiftLab</string>
+    <string name="currency">руб</string>
+    <string name="work_experience">Стаж работы:</string>
+    <string name="years">лет</string>
+    <string name="employment">Тип занятости:</string>
+    <string name="description_vacancy">Описание</string>
+</resources>

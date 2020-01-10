@@ -1,10 +1,8 @@
 package ru.shiftlab.mvvmshiftlab
 
-import android.opengl.Visibility
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -27,6 +25,7 @@ class MainActivity : AppCompatActivity() {
             .findFragmentById(R.id.myNavHostFragment) as NavHostFragment? ?: return
         navController = host.navController
 
+
         //Toolbar
         val appBarConfiguration = AppBarConfiguration(navController.graph)
         val toolBar = findViewById<Toolbar>(R.id.toolbar)
@@ -37,6 +36,17 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             navController.navigate(item.itemId)
             return@setOnNavigationItemSelectedListener true
+        }
+        visibilityNavElements(navController)
+    }
+
+    // Ставим слушатель для контроля видимости нижней панели на разных фрагментах
+    private fun visibilityNavElements(navController: NavController) {
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
+                R.id.vacancyDetailFragment -> bottomNavigationView?.visibility = View.GONE
+                else -> bottomNavigationView?.visibility = View.VISIBLE
+            }
         }
     }
 

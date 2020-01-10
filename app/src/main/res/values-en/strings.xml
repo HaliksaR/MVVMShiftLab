@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MVVMShiftLab</string>
+    <string name="currency">rub</string>
+    <string name="work_experience">Work experience:</string>
+    <string name="years">years</string>
+    <string name="employment">Employment:</string>
+    <string name="description_vacancy">Description</string>
+</resources>

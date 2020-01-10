@@ -11,11 +11,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import ru.shiftlab.mvvmshiftlab.profile.database.ProfileDatabase
-import ru.shiftlab.mvvmshiftlab.profile.domain.Profile
-import ru.shiftlab.mvvmshiftlab.profile.network.ProfileApiService
 import ru.shiftlab.mvvmshiftlab.profile.repository.ProfileRepository
 import ru.shiftlab.mvvmshiftlab.profileFormat
-import java.lang.Exception
 
 class ProfileViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -57,6 +54,7 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
 
     private fun refreshDataFromRepository() {
         coroutineScope.launch {
+            profileRepository.refreshProfiles()
             try {
                 profileRepository.refreshProfiles()
                 _eventNetworkError.value = false

@@ -22,7 +22,7 @@ import ru.shiftlab.mvvmshiftlab.profile.domain.Profile
  *
  */
 @JsonClass(generateAdapter = true)
-data class ProfileNetworkEntity(
+data class ProfileNetwork(
     val id: Int,
     val name: String,
     val status: String,
@@ -30,8 +30,8 @@ data class ProfileNetworkEntity(
 )
 
 
-fun asDomainModel(profileEntities: List<ProfileNetworkEntity>): List<Profile> {
-    return profileEntities.map {
+fun asDomainModel(profiles: List<ProfileNetwork>): List<Profile> {
+    return profiles.map {
         Profile(
             id = it.id,
             name = it.name,
@@ -42,8 +42,8 @@ fun asDomainModel(profileEntities: List<ProfileNetworkEntity>): List<Profile> {
 }
 
 
-fun asDatabaseModel(profileEntities: List<ProfileNetworkEntity>): List<ProfileEntity> {
-    return profileEntities.map {
+fun asDatabaseModel(profiles: List<ProfileNetwork>): List<ProfileEntity> {
+    return profiles.map {
         ProfileEntity(
             id = it.id,
             name = it.name,
@@ -54,12 +54,12 @@ fun asDatabaseModel(profileEntities: List<ProfileNetworkEntity>): List<ProfileEn
 }
 
 //??
-fun asDatabaseModel(profileEntity: ProfileNetworkEntity): ProfileEntity {
+fun asDatabaseModel(profile: ProfileNetwork): ProfileEntity {
     return ProfileEntity(
-        id = profileEntity.id,
-        name = profileEntity.name,
-        status = profileEntity.status,
-        specialty = profileEntity.specialty
+        id = profile.id,
+        name = profile.name,
+        status = profile.status,
+        specialty = profile.specialty
     )
 
 }

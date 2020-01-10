@@ -7,12 +7,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import kotlinx.coroutines.*
-import ru.shiftlab.mvvmshiftlab.vacancy.domain.Vacancy
 import ru.shiftlab.mvvmshiftlab.vacancy.database.VacancyDao
 import ru.shiftlab.mvvmshiftlab.vacancy.database.VacancyDatabase
+import ru.shiftlab.mvvmshiftlab.vacancy.domain.Vacancy
 import ru.shiftlab.mvvmshiftlab.vacancy.repository.VacancyRepository
 import ru.shiftlab.mvvmshiftlab.vacancyFormat
-import java.lang.Exception
 
 class VacancyViewModel(
     val database: VacancyDao,
@@ -48,6 +47,7 @@ class VacancyViewModel(
 
     private fun refreshDataFromRepository() {
         uiScope.launch {
+            vacancyRepository.refreshVacancies()
             try {
                 vacancyRepository.refreshVacancies()
                 _eventNetworkError.value = false
@@ -74,7 +74,7 @@ class VacancyViewModel(
         }
     }
 
-    suspend fun clear() {
+    private suspend fun clear() {
         withContext(Dispatchers.IO) {
             database.clear()
         }

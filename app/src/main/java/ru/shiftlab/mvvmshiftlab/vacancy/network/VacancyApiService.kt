@@ -7,8 +7,8 @@ import retrofit2.http.Path
 interface VacancyApiService {
 
     @GET("vacancy")
-    fun getVacanciesAsync(): Deferred<List<VacancyNetworkEntity>>
+    fun getVacanciesAsync(): Deferred<List<VacancyNetwork>>
 
     @GET("vacancy/{id}")
-    fun getVacancyById(@Path("id") id: Int): Deferred<VacancyNetworkEntity>
+    fun getVacancyByIdAsync(@Path("id") id: Int): Deferred<VacancyNetwork>
 }

@@ -1,18 +1,16 @@
 package ru.shiftlab.mvvmshiftlab.profile.ui
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import ru.shiftlab.mvvmshiftlab.R
 import ru.shiftlab.mvvmshiftlab.databinding.ProfileFragmentBinding
 import ru.shiftlab.mvvmshiftlab.profile.viewmodel.ProfileViewModel
 import ru.shiftlab.mvvmshiftlab.profile.viewmodel.ProfileViewModelFactory
-import ru.shiftlab.mvvmshiftlab.profile.network.ProfileApi
 
 
 class ProfileFragment : Fragment() {
@@ -41,6 +39,8 @@ class ProfileFragment : Fragment() {
         binding.lifecycleOwner = this
 
         binding.viewModel = viewModel
+
+
 
         return binding.root
     }

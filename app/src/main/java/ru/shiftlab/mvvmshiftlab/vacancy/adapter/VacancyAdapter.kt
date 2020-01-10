@@ -2,13 +2,13 @@ package ru.shiftlab.mvvmshiftlab.vacancy.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import ru.shiftlab.mvvmshiftlab.vacancy.domain.Vacancy
 import ru.shiftlab.mvvmshiftlab.databinding.VacancyItemBinding
+import ru.shiftlab.mvvmshiftlab.vacancy.domain.Vacancy
 
-class VacancyAdapter(val clickListener: VacancyListener) :
+class VacancyAdapter(private val clickListener: VacancyListener) :
     ListAdapter<Vacancy, VacancyAdapter.ViewHolder>(
         VacancyDiffCallback()
     ) {
@@ -62,5 +62,5 @@ class VacancyDiffCallback : DiffUtil.ItemCallback<Vacancy>() {
 }
 
 class VacancyListener(val clickListener: (vacancyId: Int) -> Unit) {
-    fun onClick(vacancy: Vacancy) = clickListener(vacancy.id!!)
+    fun onClick(vacancy: Vacancy) = clickListener(vacancy.id)
 }

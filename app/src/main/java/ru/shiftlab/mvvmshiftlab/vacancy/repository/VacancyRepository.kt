@@ -32,9 +32,9 @@ class VacancyRepository(private val database: VacancyDatabase) {
     suspend fun getVacancyById(id: Int) {
         withContext(Dispatchers.Main) {
             Log.d("ProfileRepository", "getVacancyById($id)")
-            val vacancyNetwork = VacancyApi.retrofitService.getVacancyById(id).await()
+            val vacancyNetwork = VacancyApi.retrofitService.getVacancyByIdAsync(id).await()
             vacancy.value = vacancyNetwork.asDomainModel()
-            Log.d("ProfileRepository", "${vacancy}")
+            Log.d("ProfileRepository", "$vacancy")
 
         }
     }

@@ -1,22 +1,20 @@
 package ru.shiftlab.mvvmshiftlab.vacancy.ui
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import ru.shiftlab.mvvmshiftlab.R
-import ru.shiftlab.mvvmshiftlab.vacancy.database.VacancyDatabase
 import ru.shiftlab.mvvmshiftlab.databinding.VacancyFragmentBinding
-import ru.shiftlab.mvvmshiftlab.vacancy.*
 import ru.shiftlab.mvvmshiftlab.vacancy.adapter.VacancyAdapter
 import ru.shiftlab.mvvmshiftlab.vacancy.adapter.VacancyListener
+import ru.shiftlab.mvvmshiftlab.vacancy.database.VacancyDatabase
 import ru.shiftlab.mvvmshiftlab.vacancy.viewmodel.VacancyViewModel
 import ru.shiftlab.mvvmshiftlab.vacancy.viewmodel.VacancyViewModelFactory
 
@@ -54,7 +52,7 @@ class VacancyFragment : Fragment() {
         val adapter =
             VacancyAdapter(
                 VacancyListener { vacancyId ->
-                    Toast.makeText(context, "${vacancyId}", Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, "$vacancyId", Toast.LENGTH_LONG).show()
                     vacancyViewModel.onVacancyClicked(vacancyId)
                 })
 

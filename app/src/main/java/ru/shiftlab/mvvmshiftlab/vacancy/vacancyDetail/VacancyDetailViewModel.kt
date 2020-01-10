@@ -1,16 +1,12 @@
 package ru.shiftlab.mvvmshiftlab.vacancy.vacancyDetail
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
 import kotlinx.coroutines.Job
-import ru.shiftlab.mvvmshiftlab.vacancy.domain.Vacancy
 import ru.shiftlab.mvvmshiftlab.vacancy.database.VacancyDao
 import ru.shiftlab.mvvmshiftlab.vacancy.database.asDomainModel
 
 class VacancyDetailViewModel(
-    private val vacancyId: Int = 1,
+    vacancyId: Int = 1,
     dataSource: VacancyDao
 ) : ViewModel() {
 
@@ -20,8 +16,20 @@ class VacancyDetailViewModel(
 
     private val vacancy = dataSource.getVacancyById(vacancyId)
 
-    val stringSalary = Transformations.map(vacancy) {
-        it.asDomainModel().salary.toString() + " руб"
+/*    val id: Int,
+    val title: String,
+    val salary: String,
+    val work_experience: String,
+    val date: String,
+    val description: String,
+    val status_vacancy: Boolean,
+    val submit: Boolean,
+    val tags: List<String>
+    */
+
+
+    fun getSalaryVacancy() = Transformations.map(vacancy) {
+        it.asDomainModel().salary
     }
 
     fun getTitleVacancy() = Transformations.map(vacancy) {
@@ -31,6 +39,30 @@ class VacancyDetailViewModel(
 
     fun getVacancy() = Transformations.map(vacancy) {
         it.asDomainModel()
+    }
+
+    fun getUrlVacancy() = Transformations.map(vacancy) {
+        it.asDomainModel().url
+    }
+
+    fun getCityVacancy() = Transformations.map(vacancy) {
+        it.asDomainModel().city
+    }
+
+    fun getWorkExperienceVacancy() = Transformations.map(vacancy) {
+        it.asDomainModel().work_experience
+    }
+
+    fun getEmploymentVacancy() = Transformations.map(vacancy) {
+        it.asDomainModel().employment
+    }
+
+    fun getDateVacancy() = Transformations.map(vacancy) {
+        it.asDomainModel().date
+    }
+
+    fun getDescriptionVacancy() = Transformations.map(vacancy) {
+        it.asDomainModel().description
     }
 
     private val _navigateToVacancy = MutableLiveData<Boolean?>()

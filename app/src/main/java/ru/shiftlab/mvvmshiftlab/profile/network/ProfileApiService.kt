@@ -5,13 +5,13 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 /**
- * Retrofit service для взаимодействия с сетью для [ProfileNetworkEntity]
+ * Retrofit service для взаимодействия с сетью для [ProfileNetwork]
  */
 interface ProfileApiService {
 
     @GET("profile")
-    fun getProfileAsync(): Deferred<List<ProfileNetworkEntity>>
+    fun getProfileAsync(): Deferred<List<ProfileNetwork>>
 
     @GET("profile/{id}")
-    fun getProfileById(@Path("id") id: Int): Deferred<ProfileNetworkEntity>
+    fun getProfileById(@Path("id") id: Int): Deferred<ProfileNetwork>
 }
