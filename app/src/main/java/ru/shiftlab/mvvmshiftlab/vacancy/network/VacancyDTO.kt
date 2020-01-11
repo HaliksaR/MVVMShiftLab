@@ -12,10 +12,9 @@ data class VacancyNetwork(
     @Json(name = "salary") val salary: String,
     @Json(name = "work_experience") val work_experience: String,
     @Json(name = "employment") val employment: String,
-    @Json(name = "date") val date: String,
+    @Json(name = "date_create") val date_create: String,
     @Json(name = "description") val description: String,
-    @Json(name = "status_vacancy") val status_vacancy: Boolean,
-    @Json(name = "submit") val submit: Boolean,
+    @Json(name = "open") val open: Boolean,
     @Json(name = "tags") val tags: List<String>
 )
 
@@ -30,10 +29,9 @@ fun asDatabaseModel(vacancies: List<VacancyNetwork>): List<VacancyEntity> {
             salary = it.salary,
             work_experience = it.work_experience,
             employment = it.employment,
-            date = it.date,
+            date_create = it.date_create,
             description = it.description,
-            status_vacancy = it.status_vacancy,
-            submit = it.submit,
+            open = it.open,
             tags = it.tags
         )
     }
@@ -49,10 +47,9 @@ fun asDatabaseModel(vacancy: VacancyNetwork): VacancyEntity {
         salary = vacancy.salary,
         work_experience = vacancy.work_experience,
         employment = vacancy.employment,
-        date = vacancy.date,
+        date_create = vacancy.date_create,
         description = vacancy.description,
-        status_vacancy = vacancy.status_vacancy,
-        submit = vacancy.submit,
+        open = vacancy.open,
         tags = vacancy.tags
     )
 
@@ -67,10 +64,9 @@ fun VacancyNetwork.asDomainModel(): Vacancy {
         salary = salary,
         work_experience = work_experience,
         employment = employment,
-        date = date,
+        date_create = date_create,
         description = description,
-        status_vacancy = status_vacancy,
-        submit = submit,
+        open = open,
         tags = tags
     )
 

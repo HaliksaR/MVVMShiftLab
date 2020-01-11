@@ -12,7 +12,6 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import ru.shiftlab.mvvmshiftlab.profile.database.ProfileDatabase
 import ru.shiftlab.mvvmshiftlab.profile.repository.ProfileRepository
-import ru.shiftlab.mvvmshiftlab.profileFormat
 
 class ProfileViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -20,13 +19,7 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
 
     private val profileRepository = ProfileRepository(ProfileDatabase.getInstance(application))
 
-    private val profiles = profileRepository.profiles
-
-    val profilesString = Transformations.map(profiles) {
-        profileFormat(it)
-    }
-
-    val profile = profileRepository.getProfile(ID_PROFILE)
+    private val profile = profileRepository.profile
 
     val profileString = Transformations.map(profile) {
         it.toString()
@@ -54,15 +47,15 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
 
     private fun refreshDataFromRepository() {
         coroutineScope.launch {
-            profileRepository.refreshProfiles()
+            profileRepository.refreshProfile()
             try {
-                profileRepository.refreshProfiles()
+                profileRepository.refreshProfile()
                 _eventNetworkError.value = false
                 _isNetworkErrorShown.value = false
 
             } catch (e: Exception) {
                 Log.d("refreshData", "${e.message}")
-                if (profiles.value!!.isEmpty())
+                if (profile.value == null)
                     _eventNetworkError.value = true
             }
         }
@@ -70,11 +63,11 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
 
     private fun refreshProfileDataFromRepository() {
         coroutineScope.launch {
-            profileRepository.refreshProfile(ID_PROFILE)
+            profileRepository.refreshProfile()
             try {
                 Log.d("refreshProfileData", "refresh PROFILE")
 
-                profileRepository.refreshProfile(ID_PROFILE)
+                profileRepository.refreshProfile()
                 _eventNetworkError.value = false
                 _isNetworkErrorShown.value = false
             } catch (e: Exception) {

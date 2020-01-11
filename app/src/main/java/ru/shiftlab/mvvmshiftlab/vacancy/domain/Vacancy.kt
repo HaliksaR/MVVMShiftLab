@@ -27,10 +27,9 @@ data class Vacancy(
     val salary: String,
     val work_experience: String,
     val employment: String,
-    val date: String,
+    val date_create: String,
     val description: String,
-    val status_vacancy: Boolean,
-    val submit: Boolean,
+    val open: Boolean,
     val tags: List<String>
 ) {
     override fun toString(): String {
@@ -42,10 +41,9 @@ data class Vacancy(
             salary = $salary,
             work_experience = $work_experience,
             employment = $employment,
-            date = $date,
+            date_create = $date_create,
             description = $description,
-            status_vacancy = $status_vacancy,
-            submit = $submit, 
+            open = $open, 
             tags = $tags
         """.trimIndent()
     }

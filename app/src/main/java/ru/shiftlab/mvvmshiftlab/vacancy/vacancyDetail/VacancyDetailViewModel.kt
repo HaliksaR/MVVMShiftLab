@@ -19,29 +19,13 @@ class VacancyDetailViewModel(
 
     private val vacancy = dataSource.getVacancyById(vacancyId)
 
-/*    val id: Int,
-    val title: String,
-    val salary: String,
-    val work_experience: String,
-    val date: String,
-    val description: String,
-    val status_vacancy: Boolean,
-    val submit: Boolean,
-    val tags: List<String>
-    */
 
-
-    fun getSalaryVacancy() = Transformations.map(vacancy) {
-        it.asDomainModel().salary
+    fun getVacancy() = Transformations.map(vacancy) {
+        it.asDomainModel()
     }
 
     fun getTitleVacancy() = Transformations.map(vacancy) {
         it.asDomainModel().title
-    }
-
-
-    fun getVacancy() = Transformations.map(vacancy) {
-        it.asDomainModel()
     }
 
     fun getUrlVacancy() = Transformations.map(vacancy) {
@@ -52,6 +36,10 @@ class VacancyDetailViewModel(
         it.asDomainModel().city
     }
 
+    fun getSalaryVacancy() = Transformations.map(vacancy) {
+        it.asDomainModel().salary
+    }
+
     fun getWorkExperienceVacancy() = Transformations.map(vacancy) {
         it.asDomainModel().work_experience
     }
@@ -60,12 +48,20 @@ class VacancyDetailViewModel(
         it.asDomainModel().employment
     }
 
-    fun getDateVacancy() = Transformations.map(vacancy) {
-        it.asDomainModel().date
+    fun getDateСreateVacancy() = Transformations.map(vacancy) {
+        it.asDomainModel().date_create
     }
 
     fun getDescriptionVacancy() = Transformations.map(vacancy) {
         it.asDomainModel().description
+    }
+
+    fun getOpenVacancy() = Transformations.map(vacancy) {
+        it.asDomainModel().open
+    }
+
+    fun getTagsVacancy() = Transformations.map(vacancy) {
+        it.asDomainModel().tags
     }
 
     private val _navigateToVacancy = MutableLiveData<Boolean?>()

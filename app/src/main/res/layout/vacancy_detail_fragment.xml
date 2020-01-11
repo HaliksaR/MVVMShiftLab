@@ -130,7 +130,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/os_light"
                         android:singleLine="true"
-                        android:text="@{viewModel.vacancy.date}"
+                        android:text="@{viewModel.vacancy.date_create}"
                         android:textColor="@color/textDarkColor"
                         android:textSize="@dimen/ts14"
                         app:layout_constraintBottom_toBottomOf="parent"

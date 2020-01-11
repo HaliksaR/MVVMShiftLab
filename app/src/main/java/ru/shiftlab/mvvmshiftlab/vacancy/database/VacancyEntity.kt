@@ -17,10 +17,13 @@ class ConvertersVacancy {
 }
 
 
-@Entity(tableName = "vacancy_table")
+@Entity(
+    tableName = "vacancy_table"
+)
 @TypeConverters(ConvertersVacancy::class)
 data class VacancyEntity(
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
+    @ColumnInfo(name = "id")
     val id: Int,
     @ColumnInfo(name = "title")
     val title: String,
@@ -34,14 +37,12 @@ data class VacancyEntity(
     val work_experience: String,
     @ColumnInfo(name = "employment")
     val employment: String,
-    @ColumnInfo(name = "date")
-    val date: String,
+    @ColumnInfo(name = "date_create")
+    val date_create: String,
     @ColumnInfo(name = "description")
     val description: String,
-    @ColumnInfo(name = "status_vacancy")
-    val status_vacancy: Boolean,
-    @ColumnInfo(name = "submit")
-    val submit: Boolean,
+    @ColumnInfo(name = "open")
+    val open: Boolean,
     @ColumnInfo(name = "tags")
     val tags: List<String>
 )
@@ -57,10 +58,9 @@ fun List<VacancyEntity>.asDomainModel(): List<Vacancy> {
             salary = it.salary,
             work_experience = it.work_experience,
             employment = it.employment,
-            date = it.date,
+            date_create = it.date_create,
             description = it.description,
-            status_vacancy = it.status_vacancy,
-            submit = it.submit,
+            open = it.open,
             tags = it.tags
         )
     }
@@ -75,10 +75,9 @@ fun VacancyEntity.asDomainModel(): Vacancy {
         salary = salary,
         work_experience = work_experience,
         employment = employment,
-        date = date,
+        date_create = date_create,
         description = description,
-        status_vacancy = status_vacancy,
-        submit = submit,
+        open = open,
         tags = tags
     )
 }

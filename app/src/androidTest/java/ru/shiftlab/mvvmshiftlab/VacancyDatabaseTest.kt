@@ -9,19 +9,15 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import ru.shiftlab.mvvmshiftlab.profile.database.ProfileDao
 import ru.shiftlab.mvvmshiftlab.profile.database.ProfileDatabase
-import ru.shiftlab.mvvmshiftlab.profile.database.ProfileEntity
-import ru.shiftlab.mvvmshiftlab.profile.database.asDomainModel
-import ru.shiftlab.mvvmshiftlab.vacancy.domain.Vacancy
-import ru.shiftlab.mvvmshiftlab.vacancy.database.VacancyDao
-import ru.shiftlab.mvvmshiftlab.vacancy.database.VacancyDatabase
+import ru.shiftlab.mvvmshiftlab.profile.database.entities.ProfileEntity
+import ru.shiftlab.mvvmshiftlab.profile.database.queries.ProfileHierarchyDao
 import java.io.IOException
 
 @RunWith(AndroidJUnit4::class)
 class VacancyDatabaseTest {
 
-    private lateinit var profileDao: ProfileDao
+    private lateinit var profileHierarchyDao: ProfileHierarchyDao
     private lateinit var profileDatabase: ProfileDatabase
 
     @Before
@@ -31,7 +27,7 @@ class VacancyDatabaseTest {
         profileDatabase = Room.inMemoryDatabaseBuilder(context, ProfileDatabase::class.java)
             .allowMainThreadQueries()
             .build()
-        profileDao = profileDatabase.profileDao
+        profileHierarchyDao = profileDatabase.profileHierarchyDao
     }
 
     @After
@@ -43,11 +39,16 @@ class VacancyDatabaseTest {
     @Test
     @Throws(Exception::class)
     fun insertAndGetVacancy() {
-        profileDao.insertProfile(
-            ProfileEntity(9, "TEST_NAME", "TEST_STATUS", "TEST_SPEC")
+        profileHierarchyDao.insertProfile(
+            ProfileEntity(
+                9,
+                "TEST_NAME",
+                "TEST_STATUS",
+                "TEST_SPEC"
+            )
         )
 
-        val profile = profileDao.getProfile(9)
+        val profile = profileHierarchyDao.getProfile(9)
         val profileString = Transformations.map(profile) {
             it.asDomainModel()
         }

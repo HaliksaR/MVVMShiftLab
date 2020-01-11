@@ -81,9 +81,6 @@ class VacancyFragment : Fragment() {
             }
         })
 
-
-
-
         return binding.root
 
 

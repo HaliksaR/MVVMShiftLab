@@ -12,6 +12,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
 
+// https://developer.android.com/training/animation/screen-slide
 class MainActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController

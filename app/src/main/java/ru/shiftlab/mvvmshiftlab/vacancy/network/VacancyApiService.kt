@@ -6,9 +6,9 @@ import retrofit2.http.Path
 
 interface VacancyApiService {
 
-    @GET("vacancy")
+    @GET("vacancies")
     fun getVacanciesAsync(): Deferred<List<VacancyNetwork>>
 
-    @GET("vacancy/{id}")
+    @GET("vacancies/{id}")
     fun getVacancyByIdAsync(@Path("id") id: Int): Deferred<VacancyNetwork>
 }

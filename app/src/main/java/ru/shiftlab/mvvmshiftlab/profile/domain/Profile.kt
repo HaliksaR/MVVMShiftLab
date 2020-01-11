@@ -1,17 +1,16 @@
 package ru.shiftlab.mvvmshiftlab.profile.domain
 
-/**
- * Класс профиля
- * @param[id] индификатор профиля
- * @param[name] имя пользователя
- * @param[status] статус пользователя (лаборант, куратор и т.п.)
- * @param[specialty] специальность пользователя (Android разработчик и т.п.)
- *
- */
 data class Profile(
     val id: Int,
     val name: String,
-    val status: String,
-    val specialty: String
+    val surname: String,
+    val patronymic: String,
+    val photo: String,
+    val date_birth: String,
+    val gender: String,
+    val city: String,
+    val phone: String,
+    val email: String,
+    val subscribe_events_tags: List<String>,
+    val subscribe_vacancies_tags: List<String>
 )
-
