@@ -26,7 +26,7 @@ class VacancyViewModel(
 
     var vacancy: LiveData<Vacancy> = vacancyRepository.vacancy
 
-    val vacancies = vacancyRepository.vacancies
+    val vacancies: LiveData<List<Vacancy>> = vacancyRepository.vacancies
 
     val vacanciesString = Transformations.map(vacancies) {
         vacancyFormat(it)

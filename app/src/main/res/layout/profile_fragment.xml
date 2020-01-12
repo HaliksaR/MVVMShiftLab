@@ -45,60 +45,72 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:id="@+id/textView"
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:textColor="@color/textDarkColor"
-                        android:textSize="@dimen/ts16"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="12dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/appCompatImageView"
-                        app:layout_constraintTop_toBottomOf="@+id/textView2"
-                        tools:text="Name" />
+                        app:layout_constraintTop_toTopOf="parent">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:fontFamily="@font/os_light"
-                        android:textColor="@color/textDarkColor"
-                        android:textSize="@dimen/ts14"
-                        app:layout_constraintStart_toEndOf="@+id/appCompatImageView"
-                        app:layout_constraintTop_toBottomOf="@+id/textView4"
-                        tools:text="Novosibirsk" />
+                        <TextView
+                            android:id="@+id/textView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{viewModel.profile.name}"
+                            android:textColor="@color/textDarkColor"
+                            android:textSize="@dimen/ts16"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView2"
+                            tools:text="Name" />
 
-                    <TextView
-                        android:id="@+id/textView2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:textColor="@color/textDarkColor"
-                        android:textSize="@dimen/ts16"
-                        app:layout_constraintStart_toEndOf="@+id/appCompatImageView"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:text="Surname" />
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/os_light"
+                            android:text="@{viewModel.profile.city}"
+                            android:textColor="@color/textDarkColor"
+                            android:textSize="@dimen/ts14"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView4"
+                            tools:text="Novosibirsk" />
 
-                    <TextView
-                        android:id="@+id/textView4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:textColor="@color/textDarkColor"
-                        android:textSize="@dimen/ts16"
-                        app:layout_constraintStart_toEndOf="@+id/appCompatImageView"
-                        app:layout_constraintTop_toBottomOf="@+id/textView"
-                        tools:text="Patronymic" />
+                        <TextView
+                            android:id="@+id/textView2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{viewModel.profile.surname}"
+                            android:textColor="@color/textDarkColor"
+                            android:textSize="@dimen/ts16"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="Surname" />
+
+                        <TextView
+                            android:id="@+id/textView4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{viewModel.profile.patronymic}"
+                            android:textColor="@color/textDarkColor"
+                            android:textSize="@dimen/ts16"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView"
+                            tools:text="Patronymic" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <ImageButton
+                        android:id="@+id/imageButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@null"
-                        android:contentDescription="Edit Profile"
-                        android:src="@drawable/ic_edit"
                         android:clickable="true"
+                        android:contentDescription="Edit Profile"
+                        android:focusable="true"
+                        android:src="@drawable/ic_edit"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:focusable="true" />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -183,6 +195,13 @@
                 app:cornerRadius="12dp"
                 app:rippleColor="@color/rippleBackgroundCardColor" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.profile.date_birth + @string/space + viewModel.profile.email + @string/space + viewModel.profile.phone + @string/space + viewModel.profile.photo + @string/space + viewModel.profile.gender + @string/space + viewModel.profile.subscribe_events_tags + @string/space + viewModel.profile.subscribe_vacancies_tags + @string/space + viewModel.profile.subscribe_vacancies_tags}"
+                android:textColor="@color/textDarkColor"
+                android:textSize="@dimen/ts16"
+                tools:text="Name" />
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 

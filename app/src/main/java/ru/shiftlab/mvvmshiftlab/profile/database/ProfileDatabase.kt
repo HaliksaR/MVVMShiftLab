@@ -20,7 +20,7 @@ import ru.shiftlab.mvvmshiftlab.profile.database.queries.ProfileDao
 https://github.com/tfiers/zorro/tree/89d131113a99563f30da50e4112e0f39106b9a87/android/app/src/main/java/net/tomasfiers/zorro/data/entities
 https://habr.com/ru/post/349280/
 https://startandroid.ru/ru/courses/dagger-2/27-course/architecture-components/530-urok-6-room-entity.html
-
+https://github.com/Karl-Sikorsky/test_task_bang
  */
 @Database(
     entities = [

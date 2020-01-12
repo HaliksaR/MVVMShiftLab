@@ -17,6 +17,6 @@ interface NotificationChannelsDao {
     suspend fun deleteNotificationChannels(notification_channel: NotificationChannelsEntity)
 
     @Query("SELECT * FROM notification_channels")
-    fun getAll(): LiveData<List<NotificationChannelsEntity>>
+    fun getNotificationChannels(): LiveData<NotificationChannelsEntity>
 
 }

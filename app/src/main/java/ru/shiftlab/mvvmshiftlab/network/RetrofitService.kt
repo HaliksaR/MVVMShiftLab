@@ -11,7 +11,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
  */
 object RetrofitService {
 
-    private const val BASE_URL = "https://my-json-server.typicode.com/HaliksaR/SandBoxDatabase/"
+    private const val BASE_URL = "http://192.168.0.3:3000/"
 
     private val moshi = Moshi.Builder()
         .add(KotlinJsonAdapterFactory())

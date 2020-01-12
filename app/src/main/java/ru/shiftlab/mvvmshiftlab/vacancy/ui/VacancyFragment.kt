@@ -67,7 +67,7 @@ class VacancyFragment : Fragment() {
 
         binding.lifecycleOwner = this
 
-        binding.vacancy = vacancyViewModel
+        binding.vacancies = vacancyViewModel
 
 
         vacancyViewModel.navigateToVacancyDetail.observe(viewLifecycleOwner, Observer { vacancyId ->

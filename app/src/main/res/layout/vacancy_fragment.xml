@@ -6,7 +6,7 @@
     <data>
 
         <variable
-            name="vacancy"
+            name="vacancies"
             type="ru.shiftlab.mvvmshiftlab.vacancy.viewmodel.VacancyViewModel" />
 
     </data>

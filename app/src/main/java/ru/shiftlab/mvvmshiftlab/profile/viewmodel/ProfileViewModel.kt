@@ -5,7 +5,6 @@ import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -19,12 +18,10 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
 
     private val profileRepository = ProfileRepository(ProfileDatabase.getInstance(application))
 
-    private val profile = profileRepository.profile
-
-    val profileString = Transformations.map(profile) {
-        it.toString()
-    }
-
+    val profile = profileRepository.profile
+    val notificationChannels = profileRepository.notificationChannels
+    val activeEvents = profileRepository.activeEvents
+    val activeVacanies = profileRepository.activeVacanies
 
     //private val _response = MutableLiveData<String>()
 
